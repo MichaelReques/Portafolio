@@ -1,0 +1,38 @@
+---
+import '../styles/global.css';
+
+const navItems = [
+    { label: "Experiencia", href: "#experiencia", active: false },
+    { label: "Proyectos", href: "#proyectos", active: false },
+    { label: "Contacto", href: "https://wa.me/51907426756", active: false },
+    { label: "CV", href: "/CV_Michael_Reques_Fernandez.pdf", active: false },
+]
+---
+
+<nav class="fixed top-4 inset-x-0 z-50 flex justify-center pointer-events-none">
+    <ul
+        id="nav-list"
+        class="pointer-events-auto flex gap-6 rounded-2xl border border-transparent px-4 py-2 text-zinc-300 text-sm font-semibold transition-all duration-300 data-[scrolled=true]:bg-zinc-900/70 data-[scrolled=true]:border-white/10 data-[scrolled=true]:backdrop-blur-md data-[scrolled=true]:shadow-lg"
+    >
+        {
+            navItems.map((item) => (
+                <li class={`p-1 px-2 rounded-xl transition-all duration-300 ${item.active ? 'bg-yellow-200/30 text-yellow-400' : 'hover:text-yellow-400'}`}>
+                    <a href={item.href}>
+                        {item.label}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</nav>
+
+<script>
+    const list = document.getElementById("nav-list");
+
+    const update = () => {
+        list?.setAttribute("data-scrolled", String(window.scrollY > 20));
+    };
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+</script>

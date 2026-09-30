@@ -1,0 +1,54 @@
+---
+import "../styles/global.css";
+import { Icon } from "astro-icon/components";
+
+const experiences = [
+  {
+    title: "Estudiante de Ingeniería de Software",
+    place: "UTP",
+    date: "2022 - Actualidad",
+    description:
+      "Formación en Ingenieria de software, con foco en desarrollo de aplicaciones completas de frontend a backend.",
+  },
+  {
+    title: "Innovafy",
+    place: "Creación de sitio web para esta empresa",
+    date: "Mayo 2026 - Agosto 2026",
+    description: "Trabaje como programador Frontend, desarrollando en Next.js, Three.js y Tailwind CSS, con un enfoque en la experiencia del usuario y la optimización del rendimiento.",
+  },
+  {
+    title: "Freelance",
+    place: "Creación de paginas web a medida",
+    date: "Agosto 2026 - Actualidad",
+    description: "Desarrollo sitios web personalizados según las necesidades de cada cliente. Me encargo de todo el proceso: diseño de la interfaz, programación, despliegue y ajustes posteriores",
+  },
+];
+---
+
+<section id="experiencia" class="mt-20">
+  <div class="flex items-center gap-3 mb-10">
+    <Icon name="tabler:briefcase" class="text-white w-7 h-7" />
+    <h2 class="text-3xl font-bold text-white">Experiencia</h2>
+  </div>
+
+  <ol class="relative ms-2 border-s-2 border-white/10">
+    {
+      experiences.map(({ title, place, date, description }) => (
+        <li class="relative grid gap-3 ps-8 pb-12 last:pb-0 md:grid-cols-[1fr_1.6fr] md:gap-10">
+          <span class="absolute inset-inline-start: calc(9px * -1) top-1.5 h-4 w-4 rounded-full bg-yellow-400 shadow-[0_0_12px_rgba(250,204,21,0.6)]" />
+
+          <div>
+            <h3 class="text-xl font-bold text-yellow-400">{title}</h3>
+            <p class="text-lg font-bold text-white">{place}</p>
+            <p class="mt-1 text-sm font-medium text-zinc-400">{date}</p>
+          </div>
+
+          <div>
+            <p class="text-zinc-300">{description}</p>
+            
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</section>
